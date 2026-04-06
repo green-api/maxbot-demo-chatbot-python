@@ -1,4 +1,4 @@
-import os, sys, time, logging, asyncio
+import os, time, asyncio
 from dotenv import load_dotenv
 
 from maxbot_chatbot_python.bot import Bot
@@ -6,15 +6,9 @@ from maxbot_api_client_python import API, Config
 from maxbot_chatbot_python.state import MapStateManager
 from scenes.start import StartScene
 
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-logging.getLogger("httpx").setLevel(logging.WARNING)
-logger = logging.getLogger(__name__)
-
-sys.dont_write_bytecode = True
-
 async def main():
     if not load_dotenv():
-        logger.warning("Warning: Error loading .env file or it does not exist")
+        print(f"Warning: Error loading .env file or it does not exist")
 
     try:
         api_client = API(Config(
@@ -25,7 +19,7 @@ async def main():
         ))
         app_bot = Bot(api_client)
     except Exception as e:
-        logger.fatal(f"Bot initialization error: {e}")
+        print(f"Bot initialization error: {e}")
         return
 
     start_scene = StartScene()
@@ -54,16 +48,16 @@ async def main():
         if hasattr(current_scene, 'execute'):
             await current_scene.execute(n)
         else:
-            logger.error("Current scene does not implement 'execute' method")
+            print(f"Current scene does not implement 'execute' method")
 
     try:
-        logger.info("Bot is polling...")
+        print(f"Bot is polling...")
         await app_bot.start_polling()
     except asyncio.CancelledError:
-        logger.info("The bot has been stopped")
+        print(f"The bot has been stopped")
 
 if __name__ == "__main__":
     try:
         asyncio.run(main())
     except KeyboardInterrupt:
-        logger.info("The bot has been stopped by user")
+        print(f"The bot has been stopped by user")

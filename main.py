@@ -20,7 +20,7 @@ async def main():
         api_client = API(Config(
             base_url=os.getenv("BASE_URL"),
             token=os.getenv("TOKEN"),
-            global_rps=25,
+            ratelimiter=25,
             timeout=30
         ))
         app_bot = Bot(api_client)

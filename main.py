@@ -30,23 +30,22 @@ async def main():
 
     @app_bot.router.register("message_created")
     @app_bot.router.register("message_callback")
-
-    async def scene_handler(n):
-        if n.update and getattr(n.update, 'timestamp', 0) < start_time:
+    async def scene_handler(notification):
+        if notification.update and getattr(notification.update, 'timestamp', 0) < start_time:
             return
         
-        n.create_state_id()
+        notification.create_state_id()
 
-        if not app_bot.state_manager.get(n.state_id):
-            app_bot.state_manager.create(n.state_id)
+        if not app_bot.state_manager.get(notification.state_id):
+            app_bot.state_manager.create(notification.state_id)
 
-        current_scene = n.get_current_scene()
+        current_scene = notification.get_current_scene()
         if not current_scene:
             current_scene = start_scene
-            n.activate_next_scene(current_scene)
+            notification.activate_next_scene(current_scene)
 
         if hasattr(current_scene, 'execute'):
-            await current_scene.execute(n)
+            await current_scene.execute(notification)
         else:
             print(f"Current scene does not implement 'execute' method")
 

@@ -42,7 +42,7 @@ links:
   send_file_documentation: "https://green-api.com/max-bot-api/docs/api/upload/UploadFile/"
   send_contact_documentation: "https://green-api.com/max-bot-api/docs/api/messages/SendMessage/"
   send_location_documentation: "https://green-api.com/max-bot-api/docs/api/messages/SendMessage/"
-  maxbot_api_client_go_documentation: "https://github.com/green-api/maxbot-api-client-python/blob/master/README.md"
+  maxbot_api_client_python_documentation: "https://github.com/green-api/maxbot-api-client-python/blob/master/README.md"
   greenapi_website: "https://green-api.com/max"
   max_documentation: "https://dev.max.ru/docs-api"
 link_to_source_code:

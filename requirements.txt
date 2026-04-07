@@ -2,3 +2,5 @@ maxbot-api-client-python==1.0.1
 maxbot-chatbot-python==1.0.1
 python-dotenv==1.0.1
 PyYAML==6.0.2
+httpx==0.28.1
+pydantic==2.10.6

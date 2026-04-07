@@ -5,10 +5,11 @@ setup(
     version="1.0.1",
     description="Python demo chatbot for MAX bot",
     author="Green-API",
-    packages=find_packages, 
+    url="https://github.com/green-api/maxbot-demo-chatbot-python",
+    packages=find_packages(),
     install_requires=[
-        "maxbot-api-client-python"
-        "maxbot-chatbot-python"
+        "maxbot-api-client-python",
+        "maxbot-chatbot-python",
         "httpx",
         "python-dotenv",
         "PyYAML",

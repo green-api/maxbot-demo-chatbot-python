@@ -52,8 +52,8 @@ link_to_max:
   ru: "\n\n📚 Документация MAX API:\nhttps://dev.max.ru/docs-api"
   en: "\n\n📚 MAX API Documentation:\nhttps://dev.max.ru/docs-api"
 link_to_docs:
-  ru: "\n\n📚 Документация MAX BOT API от Green-API:\nhttps://green-api.com/max-bot-api/docs/"
-  en: "\n\n📚 MAX BOT API Green-API Documentation:\nhttps://green-api.com/max-bot-api/docs/"
+  ru: "\n\n📚 Документация MAX BOT API:\nhttps://green-api.com/max-bot-api/docs/"
+  en: "\n\n📚 MAX BOT API Documentation:\nhttps://green-api.com/max-bot-api/docs/"
 bot_name:
   ru: "MAX BOT API чат-бот"
-  en: "MAX BOT API chat-bot"
+  en: "MAX BOT API chatbot"

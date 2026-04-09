@@ -19,24 +19,24 @@ async def main():
     )
 
     async with API(cfg) as api_client:
-        app_bot = Bot(api_client)
+        bot = Bot(api_client)
         
         start_scene = StartScene()
-        app_bot.state_manager = MapStateManager(init_data={})
-        app_bot.state_manager.set_start_scene(start_scene)
+        bot.state_manager = MapStateManager(init_data={})
+        bot.state_manager.set_start_scene(start_scene)
 
         start_time = time.time()
 
-        @app_bot.router.register("message_created")
-        @app_bot.router.register("message_callback")
+        @bot.router.register("message_created")
+        @bot.router.register("message_callback")
         async def scene_handler(notification):
             if notification.update and getattr(notification.update, 'timestamp', 0) < (start_time * 1000):
                 return
             
             notification.create_state_id()
 
-            if not app_bot.state_manager.get(notification.state_id):
-                app_bot.state_manager.create(notification.state_id)
+            if not bot.state_manager.get(notification.state_id):
+                bot.state_manager.create(notification.state_id)
 
             current_scene = notification.get_current_scene()
             if not current_scene:
@@ -50,7 +50,7 @@ async def main():
 
         try:
             logger.info("Bot is polling...")
-            await app_bot.start_polling()
+            await bot.start_polling()
         except asyncio.CancelledError:
             logger.info("The bot has been stopped")
 

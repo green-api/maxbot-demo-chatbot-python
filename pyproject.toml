@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "maxbot-demo-chatbot-python"
+version = "1.1.1"
+description = "Python demo chatbot for MAX BOT API"
+readme = "README.md"
+authors = [{ name = "Green-API" }]
+requires-python = ">=3.12"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "maxbot-api-client-python>=1.2.2",
+    "maxbot-chatbot-python>=1.1.1",
+    "httpx>=0.28.1",
+    "python-dotenv>=1.0.1",
+    "PyYAML>=6.0.2",
+    "pydantic>=2.10.6"
+]
+
+[project.urls]
+Homepage = "https://github.com/green-api/maxbot-demo-chatbot-python"
